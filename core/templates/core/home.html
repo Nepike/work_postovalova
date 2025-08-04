@@ -1,16 +1,103 @@
-{% extends 'core/base.html' %}
 {% load static %}
 
-{% block title %}Home{% endblock %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Психолог - Ольга Постовалова</title>
+        <link rel="icon" href="{% static 'core/img/favicon.png' %}?v={{ STATIC_VERSION }}" type="image/x-icon">
 
-{% block css %}
-<link href="{% static 'core/css/home.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet" />
-{% endblock %}
 
-{% block js %}
-<script defer src="{% static 'core/js/home.js' %}?v={{ STATIC_VERSION }}"></script>
-{% endblock %}
+        <!-- INCLUDES -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/610c72000d.js" crossorigin="anonymous"></script>
+        <link href="{% static 'core/css/bootstrap.min.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
+        <script defer src="{% static 'core/js/bootstrap.bundle.min.js' %}?v={{ STATIC_VERSION }}"></script>
 
-{% block content %}
-!!!
-{% endblock %}
+
+
+
+        <!-- CSS -->
+        <link href="{% static 'core/css/home.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet" />
+
+
+
+        <!-- JS (better use "defer") -->
+        <script defer src="{% static 'core/js/home.js' %}?v={{ STATIC_VERSION }}"></script>
+    </head>
+
+    <body>
+        <div id="alert-danger">
+          <span class="alert-close">&times;</span>
+          <span class="alert-message"></span>
+        </div>
+        <div id="alert-success">
+          <span class="alert-close">&times;</span>
+          <span class="alert-message"></span>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $(".alert-close").click(function(){
+                    var div = this.parentElement;
+                    div.style.opacity = "0";
+                    setTimeout(function(){ div.style.display = "none"; }, 600);
+                });
+
+                {% if alert_success %}
+                	alertSuccess("{{alert_success|escapejs}}", 100000);
+                {% endif %}
+
+                {% if alert_danger %}
+                	alertDanger("{{alert_danger|escapejs}}", 100000);
+                {% endif %}
+            });
+        </script>
+       
+
+        <div id="wrapper" class="container-fluid" style="padding-top: 100px;">
+        	<div class="row">
+    			<div id="about" class="col-12 col-lg-8 mx-auto">
+    				<div class="row">
+    					<div class="col-12 col-xxl-5 text-center">
+    						<div class="about-left">
+	    						<img src="{% static 'core/img/about-pic.jpg' %}?v={{ STATIC_VERSION }}" alt="">
+	    						<div class="about-plate"><i class="fa-solid fa-puzzle-piece"></i>Практический психолог, КПТ терапевт, ДПДГ специалист</div>
+	    						<div class="about-plate"><i class="fa-solid fa-award"></i>Член профессиональной психотерапевтической лиги (OPPL)</div>
+	    					</div>
+    					</div>
+    					<div class="about-right col-12 col-xxl-7">
+    						<div class="about-title">Обо мне</div>
+    						<ul class="about-list">
+    							<li>Мой путь в психологию лежал через бизнес, более 15 лет я проработала директором по персоналу в компаниях федерального уровня.</li>
+    							<li>Мне не понаслышке знакомы проблемы эмоционального выгорания, синдрома «хорошей девочки» и перфекционизма.</li>
+    							<li>Мне больших усилий стоило свернуть с проторенной карьерной дорожки и изменить стремление достигать и преодолевать на право быть счастливой и любить то, что я делаю.</li>
+    							<li>С удовольствием пройду вместе с вами ваш путь, буду вашей поддержкой и опорой в самые сложные моменты вашей жизни.</li>
+    							<li>Я уверена, что в мире нет ничего невозможного, вместе мы можем сделать вашу жизнь красочной, интересной и счастливой.</li>
+    						</ul>
+    					</div>
+    				</div>
+        		</div>
+        	</div>
+
+        	<div class="row">
+        		<div id="requests" class="col-12 col-lg-8 mx-auto">
+        			<div class="requests-title">Запросы, с которыми я работаю</div>
+        			<div class="requests-container">
+        				<div class="request-element">
+        					<img class="request-element-img" src="{% static 'core/img/request1.png' %}?v={{ STATIC_VERSION }}" alt="">
+        					<div class="request-element-title">Профвыгорание</div>
+        					<div class="request-element-description">Знакомо ли вам чувство усталости и разбитости, когда мысли о следующем рабочем дне приводят в уныние и тоску? Есть ли у вас ощущение, что завал на работе никогда не закончится, а ваших сил осталось совсем немного. Вас перестали радовать близкие, вы постоянно раздражены и встревожены, вы моделируете бесконечные внутренние диалоги с вашим руководителем. Если вы испытываете хотя бы половину из вышесказанного, то вы точно знаете, что такое профвыгорание.</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
+        <div id="footer">
+        </div>
+    </body>
+</html>

@@ -6,4 +6,5 @@ logger = logging.getLogger(__name__)
 
 
 def home(request):
-    return render(request, "core/home.html")
+    context = {}
+    return render(request, "core/home.html", context)
