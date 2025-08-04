@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+<link href="{% static 'core/css/home.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet" />
+{% endblock %}
+
+{% block js %}
+<script defer src="{% static 'core/js/home.js' %}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}
+
+{% block content %}
+!!!
+{% endblock %}

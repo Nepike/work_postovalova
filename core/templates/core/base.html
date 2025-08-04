@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        {% block meta %}{% endblock %}
+        <title>{% block title %}{% endblock %} - Психолог - Ольга Постовалова</title>
+        <link rel="icon" href="{% static 'core/img/favicon.png' %}?v={{ STATIC_VERSION }}" type="image/x-icon">
+
+
+        <!-- INCLUDES -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/610c72000d.js" crossorigin="anonymous"></script>
+
+
+
+
+        <!-- CSS -->
+        <link href="{% static 'core/css/base.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet" />
+        {% block css %}{% endblock %}
+
+
+
+        <!-- JS (better use "defer") -->
+        <script defer src="{% static 'core/js/base.js' %}?v={{ STATIC_VERSION }}"></script>
+        {% block js %}{% endblock %}
+    </head>
+
+    <body class="light">
+        <div id="alert-danger">
+          <span class="alert-close">&times;</span>
+          <span class="alert-message"></span>
+        </div>
+        <div id="alert-success">
+          <span class="alert-close">&times;</span>
+          <span class="alert-message"></span>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $(".alert-close").click(function(){
+                    var div = this.parentElement;
+                    div.style.opacity = "0";
+                    setTimeout(function(){ div.style.display = "none"; }, 600);
+                });
+
+                {% if alert_success %}
+                alertSuccess("{{alert_success|escapejs}}", 100000);
+                {% endif %}
+
+                {% if alert_danger %}
+                alertDanger("{{alert_danger|escapejs}}", 100000);
+                {% endif %}
+            });
+        </script>
+       
+
+        <div id="wrapper">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div id="footer">
+        </div>
+    </body>
+</html>
