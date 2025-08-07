@@ -2,102 +2,132 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Психолог - Ольга Постовалова</title>
-        <link rel="icon" href="{% static 'core/img/favicon.png' %}?v={{ STATIC_VERSION }}" type="image/x-icon">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<title>Психолог - Ольга Постовалова</title>
+		<link rel="icon" href="{% static 'core/img/favicon.png' %}?v={{ STATIC_VERSION }}" type="image/x-icon">
 
 
-        <!-- INCLUDES -->
-        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        <script src="https://kit.fontawesome.com/610c72000d.js" crossorigin="anonymous"></script>
-        <link href="{% static 'core/css/bootstrap.min.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
-        <script defer src="{% static 'core/js/bootstrap.bundle.min.js' %}?v={{ STATIC_VERSION }}"></script>
-
-
-
-
-        <!-- CSS -->
-        <link href="{% static 'core/css/home.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet" />
+		<!-- INCLUDES -->
+		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="https://kit.fontawesome.com/610c72000d.js" crossorigin="anonymous"></script>
+<!--         <link href="{% static 'core/css/bootstrap.min.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
+		<script defer src="{% static 'core/js/bootstrap.bundle.min.js' %}?v={{ STATIC_VERSION }}"></script> -->
 
 
 
-        <!-- JS (better use "defer") -->
-        <script defer src="{% static 'core/js/home.js' %}?v={{ STATIC_VERSION }}"></script>
-    </head>
 
-    <body>
-        <div id="alert-danger">
-          <span class="alert-close">&times;</span>
-          <span class="alert-message"></span>
-        </div>
-        <div id="alert-success">
-          <span class="alert-close">&times;</span>
-          <span class="alert-message"></span>
-        </div>
-        <script>
-            $(document).ready(function(){
-                $(".alert-close").click(function(){
-                    var div = this.parentElement;
-                    div.style.opacity = "0";
-                    setTimeout(function(){ div.style.display = "none"; }, 600);
-                });
+		<!-- CSS -->
+		<link href="{% static 'core/css/home.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet" />
 
-                {% if alert_success %}
-                	alertSuccess("{{alert_success|escapejs}}", 100000);
-                {% endif %}
 
-                {% if alert_danger %}
-                	alertDanger("{{alert_danger|escapejs}}", 100000);
-                {% endif %}
-            });
-        </script>
-       
 
-        <div id="wrapper" class="container-fluid" style="padding-top: 100px;">
-        	<div class="row">
-    			<div id="about" class="col-12 col-lg-8 mx-auto">
-    				<div class="row">
-    					<div class="col-12 col-xxl-5 text-center">
-    						<div class="about-left">
-	    						<img src="{% static 'core/img/about-pic.jpg' %}?v={{ STATIC_VERSION }}" alt="">
-	    						<div class="about-plate"><i class="fa-solid fa-puzzle-piece"></i>Практический психолог, КПТ терапевт, ДПДГ специалист</div>
-	    						<div class="about-plate"><i class="fa-solid fa-award"></i>Член профессиональной психотерапевтической лиги (OPPL)</div>
-	    					</div>
-    					</div>
-    					<div class="about-right col-12 col-xxl-7">
-    						<div class="about-title">Обо мне</div>
-    						<ul class="about-list">
-    							<li>Мой путь в психологию лежал через бизнес, более 15 лет я проработала директором по персоналу в компаниях федерального уровня.</li>
-    							<li>Мне не понаслышке знакомы проблемы эмоционального выгорания, синдрома «хорошей девочки» и перфекционизма.</li>
-    							<li>Мне больших усилий стоило свернуть с проторенной карьерной дорожки и изменить стремление достигать и преодолевать на право быть счастливой и любить то, что я делаю.</li>
-    							<li>С удовольствием пройду вместе с вами ваш путь, буду вашей поддержкой и опорой в самые сложные моменты вашей жизни.</li>
-    							<li>Я уверена, что в мире нет ничего невозможного, вместе мы можем сделать вашу жизнь красочной, интересной и счастливой.</li>
-    						</ul>
-    					</div>
-    				</div>
-        		</div>
-        	</div>
+		<!-- JS (better use "defer") -->
+		<script defer src="{% static 'core/js/home.js' %}?v={{ STATIC_VERSION }}"></script>
+	</head>
 
-        	<div class="row">
-        		<div id="requests" class="col-12 col-lg-8 mx-auto">
-        			<div class="requests-title">Запросы, с которыми я работаю</div>
-        			<div class="requests-container">
-        				<div class="request-element">
-        					<img class="request-element-img" src="{% static 'core/img/request1.png' %}?v={{ STATIC_VERSION }}" alt="">
-        					<div class="request-element-title">Профвыгорание</div>
-        					<div class="request-element-description">Знакомо ли вам чувство усталости и разбитости, когда мысли о следующем рабочем дне приводят в уныние и тоску? Есть ли у вас ощущение, что завал на работе никогда не закончится, а ваших сил осталось совсем немного. Вас перестали радовать близкие, вы постоянно раздражены и встревожены, вы моделируете бесконечные внутренние диалоги с вашим руководителем. Если вы испытываете хотя бы половину из вышесказанного, то вы точно знаете, что такое профвыгорание.</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </div>
 
-        <div id="footer">
-        </div>
-    </body>
+	<header></header>
+
+	<body>
+		<div id="alert-danger">
+		  <span class="alert-close">&times;</span>
+		  <span class="alert-message"></span>
+		</div>
+		<div id="alert-success">
+		  <span class="alert-close">&times;</span>
+		  <span class="alert-message"></span>
+		</div>
+		<script>
+			$(document).ready(function(){
+				$(".alert-close").click(function(){
+					var div = this.parentElement;
+					div.style.opacity = "0";
+					setTimeout(function(){ div.style.display = "none"; }, 600);
+				});
+
+				{% if alert_success %}
+					alertSuccess("{{alert_success|escapejs}}", 100000);
+				{% endif %}
+
+				{% if alert_danger %}
+					alertDanger("{{alert_danger|escapejs}}", 100000);
+				{% endif %}
+			});
+		</script>
+
+
+
+		<div id="about">
+			<div id="about-plate" class="wrapper-block">
+				<div id="about-plate-left">
+					<img src="{% static 'core/img/about-pic.jpg' %}?v={{ STATIC_VERSION }}" alt="">
+					<div class="img-plate"><i class="fa-solid fa-puzzle-piece"></i>Практический психолог, КПТ терапевт, ДПДГ специалист</div>
+					<div class="img-plate"><i class="fa-solid fa-award"></i>Член профессиональной психотерапевтической лиги (OPPL)</div>
+				</div>
+				<div id="about-plate-right">
+					<div class="block-title">Обо мне</div>
+					<ul id="about-list">
+						<li>Мой путь в психологию лежал через бизнес, более 15 лет я проработала директором по персоналу в компаниях федерального уровня.</li>
+						<li>Мне не понаслышке знакомы проблемы эмоционального выгорания, синдрома «хорошей девочки» и перфекционизма.</li>
+						<li>Мне больших усилий стоило свернуть с проторенной карьерной дорожки и изменить стремление достигать и преодолевать на право быть счастливой и любить то, что я делаю.</li>
+						<li>С удовольствием пройду вместе с вами ваш путь, буду вашей поддержкой и опорой в самые сложные моменты вашей жизни.</li>
+						<li>Я уверена, что в мире нет ничего невозможного, вместе мы можем сделать вашу жизнь красочной, интересной и счастливой.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="requests">
+			<div class="wrapper-block">
+				<div class="block-title">Запросы, с которыми я работаю</div>
+				<div class="requests-container">
+					<div class="request-element">
+						<img class="request-element-img" src="{% static 'core/img/request1.png' %}?v={{ STATIC_VERSION }}" alt="">
+						<div class="request-element-title">Профвыгорание</div>
+						<div class="request-element-description">Знакомо ли вам чувство усталости и разбитости, когда мысли о следующем рабочем дне приводят в уныние и тоску? Есть ли у вас ощущение, что завал на работе никогда не закончится, а ваших сил осталось совсем немного. Вас перестали радовать близкие, вы постоянно раздражены и встревожены, вы моделируете бесконечные внутренние диалоги с вашим руководителем. Если вы испытываете хотя бы половину из вышесказанного, то вы точно знаете, что такое профвыгорание.</div>
+					</div>
+					<div class="request-element">
+						<img class="request-element-img" src="{% static 'core/img/request2.png' %}?v={{ STATIC_VERSION }}" alt="">
+						<div class="request-element-title">Самоопределение и поиск себя</div>
+						<div class="request-element-description">В течение жизни каждый человек проходит возрастные кризисы, часть из них остаются в детстве, а часть приходятся на сознательный возраст. Кризис середины жизни не зря называют экзистенциальным, в этот период мы пересматриваем наши ценности, анализируем прожитые годы, оцениваем достижения и победы. Часто в этот период мы сталкиваемся с желанием начать все сначала, изменить жизнь. И именно тогда нам нужен человек, который бы поддержал, дал опору, не побоялся смотреть в будущее вместе с нами.</div>
+					</div>
+					<div class="request-element">
+						<img class="request-element-img" src="{% static 'core/img/request3.png' %}?v={{ STATIC_VERSION }}" alt="">
+						<div class="request-element-title">Синдром «хорошей девочки»</div>
+						<div class="request-element-description">Если вы забыли слово «Хочу», не можете назвать и 10 пунктов в списке ваших желаний, однако список ваших обязанностей не уместится и на трех листах, то впору задуматься, чью жизнь вы проживаете, для кого вы так стараетесь и какую выгоду вы от этого получаете. «Хорошей девочке» ничего нельзя, у нее есть лишь долг и обязанности, сначала перед родителями, потом перед мужем и детьми, так она и растворяется в чужих надеждах и ожиданиях, которые никак не может оправдать.</div>
+					</div>
+					<div class="request-element">
+						<img class="request-element-img" src="{% static 'core/img/request4.png' %}?v={{ STATIC_VERSION }}" alt="">
+						<div class="request-element-title">ПТСР</div>
+						<div class="request-element-description">Нет ничего хуже, чем раз за разом проваливаться в травматические воспоминания, просыпаться по ночам от увиденного во сне, бояться заснуть, ловить флешбеки пережитого. Проработка травмы даст вам свободу жить, свободу чувствовать и наслаждаться жизнью.</div>
+					</div>
+					<div class="request-element">
+						<img class="request-element-img" src="{% static 'core/img/request5.png' %}?v={{ STATIC_VERSION }}" alt="">
+						<div class="request-element-title">Проживание горя и утраты</div>
+						<div class="request-element-description">Каждому из нас в жизни приходится переживать потери близких и друзей, переживать это в одиночестве неимоверно трудно. Важно вновь ощутить опору и веру в жизнь.</div>
+					</div>
+					<div class="request-element">
+						<img class="request-element-img" src="{% static 'core/img/request6.png' %}?v={{ STATIC_VERSION }}" alt="">
+						<div class="request-element-title">Детско-родительские отношения</div>
+						<div class="request-element-description">Слышали ли вы такое выражение: «никогда не поздно иметь счастливое детство»? Суть этой фразы в том, что чем бы не наградили нас наши родители, какими бы они не были, мы совершенно точно заслуживаем быть счастливыми. И теперь это только в наших руках, важно только получить инструменты и увидеть путь.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="services">
+			<div class="wrapper-block">
+				<div class="block-title">Услуги</div>
+				<div class="services-container">
+					
+				</div>
+			</div>
+		</div>
+
+	</body>
 </html>
