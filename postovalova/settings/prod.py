@@ -65,16 +65,14 @@ with open(CONFIG_PATH) as f:
 SECRET_KEY = SITE_CONFIG["secret_key"]
 DEBUG = False
 
-SITE_URL = 'https://...'  # главный домен вместе с https://
+SITE_URL = 'https://194.87.43.18'  # главный домен вместе с https://
 CSRF_TRUSTED_ORIGINS = [
     SITE_URL,
 ]
 
 
 ALLOWED_HOSTS = [
-    '...',
-    '...',
-    '...',
+    '194.87.43.18',
     '127.0.0.1',
     'localhost'
 ]
