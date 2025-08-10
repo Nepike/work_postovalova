@@ -14,11 +14,11 @@
 Клонировать репозиторий:
 ```bash
 # Клонирование репозитория
-git clone https://github.com/Nepike/work_postovalova
+git clone https://github.com/Nepike/work_postovalova post
 
 
 # Переход в папку с проектом
-cd postovalova
+cd post
 
 # Создание и активация виртуального окружения Python
 python3 -m venv virtualenv

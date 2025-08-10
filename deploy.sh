@@ -1,33 +1,35 @@
-##!/usr/bin/bash
-#
-#script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-#
-## Change to that directory
-#cd "$script_dir"
-#
-#PYTHON_EXEC="../v/bin/python"
-#CELERY_EXEC="../v/bin/celery"
-#
-## TODO: make backup
-#
-#touch ../maintenance
-#
-#sudo systemctl stop knt-mipt.ru-uwsgi.service
-#
-#export STATIC_VERSION=$(date +%s)
-#echo "STATIC_VERSION=$STATIC_VERSION" > ../.env
-#
-#
-#git pull origin main
-#$PYTHON_EXEC -m pip install -r requirements.txt
-#$PYTHON_EXEC manage.py makemigrations
-#$PYTHON_EXEC manage.py migrate
-#$PYTHON_EXEC manage.py set_telegram_webhook
-#$PYTHON_EXEC manage.py collectstatic --noinput -v 0
-#
-##pkill -f "celery -A knt worker"
-##$CELERY_EXEC -A knt worker --loglevel=info --detach
-#
-#sudo systemctl start knt-mipt.ru-uwsgi.service
-#
-#rm ../maintenance
+#!/bin/bash
+
+# Путь к проекту
+PROJECT_DIR=/home/maxve/post
+VENV_DIR=$PROJECT_DIR/virtualenv
+
+# Лог файл деплоя
+LOGFILE=$PROJECT_DIR/deploy.log
+
+echo "=== DEPLOY START: $(date) ===" >> $LOGFILE
+
+cd $PROJECT_DIR || { echo "No project dir"; exit 1; }
+
+# Выключаем gunicorn перед обновлением
+sudo systemctl stop gunicorn
+
+# Сброс локальных изменений и обновление из git
+git reset --hard
+git pull origin main
+
+# Активируем виртуальное окружение и ставим зависимости
+source $VENV_DIR/bin/activate
+pip install -r requirements.txt
+
+# Собираем статику (если нужно)
+python manage.py collectstatic --noinput
+
+# Миграции
+python manage.py makemigrations
+python manage.py migrate
+
+# Запускаем gunicorn
+sudo systemctl start gunicorn
+
+echo "=== DEPLOY END: $(date) ===" >> $LOGFILE

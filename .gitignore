@@ -9,4 +9,4 @@
 /static/*
 /.idea/*
 /.venv/*
-/.virtualenv/*
+/virtualenv/*
