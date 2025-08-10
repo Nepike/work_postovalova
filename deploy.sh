@@ -11,8 +11,6 @@ echo "=== DEPLOY START: $(date) ===" >> $LOGFILE
 
 cd $PROJECT_DIR || { echo "No project dir"; exit 1; }
 
-# Выключаем gunicorn перед обновлением
-sudo systemctl stop gunicorn
 
 # Сброс локальных изменений и обновление из git
 git reset --hard
