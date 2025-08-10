@@ -1,0 +1,8 @@
+secret_key:
+env: prod
+deploy_secret: 1234
+telegram_bot:
+  token:
+recaptcha:
+  public_key:
+  private_key:
