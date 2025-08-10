@@ -3,7 +3,7 @@ import subprocess
 
 app = Flask(__name__)
 
-@app.route('/webhook', methods=['POST'])
+@app.route('/deploy_webhook', methods=['POST'])
 def webhook():
     if request.method == 'POST':
         # Здесь можно проверить секрет (если настроен на GitHub)

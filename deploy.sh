@@ -29,7 +29,8 @@ python manage.py collectstatic --noinput
 python manage.py makemigrations
 python manage.py migrate
 
-# Запускаем gunicorn
+# Запускаем gunicorn + deploy webhook
 pm2 restart "gunicorn-postovalova"
+pm2 restart deploy-postovalova
 
 echo "=== DEPLOY END: $(date) ===" >> $LOGFILE
