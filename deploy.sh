@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Путь к проекту
-PROJECT_DIR=/home/maxve/post
+PROJECT_DIR=/srv/postovalova
 VENV_DIR=$PROJECT_DIR/virtualenv
 
 # Лог файл деплоя
@@ -30,6 +30,6 @@ python manage.py makemigrations
 python manage.py migrate
 
 # Запускаем gunicorn
-sudo systemctl start gunicorn
+pm2 restart "gunicorn-postovalova"
 
 echo "=== DEPLOY END: $(date) ===" >> $LOGFILE
