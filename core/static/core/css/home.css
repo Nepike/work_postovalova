@@ -10,6 +10,12 @@
 }
 
 
+body {
+    margin: 0;
+    padding: 0;;
+}
+
+
 #alert-danger, #alert-success {
     position: fixed;
     top: 2%;
