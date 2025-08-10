@@ -8,7 +8,9 @@ def webhook():
     if request.method == 'POST':
         # Здесь можно проверить секрет (если настроен на GitHub)
         # Для простоты запускаем deploy.sh без проверки
-        subprocess.Popen(['/home/maxve/post/deploy.sh'])
+        subprocess.Popen([
+            "/bin/bash", os.path.join(os.path.dirname(__file__), 'deploy.sh')
+        ])
         return 'Deploy started', 200
     else:
         return 'Method not allowed', 405
