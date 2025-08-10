@@ -1,4 +1,4 @@
-secret_key:
+secret_key: 1234
 env: prod
 deploy_secret: 1234
 telegram_bot:
