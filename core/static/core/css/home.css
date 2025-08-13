@@ -115,6 +115,8 @@ body {
     width: 94%;
     left: 3%;
     font-size: 12px;
+
+    display: none;
 }
 
 #about-plate-left .img-plate i {
@@ -135,7 +137,7 @@ body {
 .block-title {
     font-size: clamp(28px, 4vw, 3rem);
     font-weight: 500;
-    margin-bottom: 15px;
+    margin: 0 0 15px 15px;
 }
 
 #about-list {
@@ -149,7 +151,7 @@ body {
     font-size: clamp(16px, 2.5vw, 20px);
     line-height: clamp(18px, 2.5vw, 26px);
     padding-left: clamp(20px, 2.5vw, 30px);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 #about-list li::before {
@@ -231,11 +233,11 @@ body {
 
 .services-container {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: start;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 20px;
 }
 
 .service-element {
@@ -243,8 +245,9 @@ body {
     background-color: #ffffff;
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(85, 85, 85, 0.2);
-    width: 360px;
-    height: 320px;
+
+    width: 95%;
+    aspect-ratio: 1/0.8;
 
     display: flex;
     flex-direction: column;
@@ -286,7 +289,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 
     height: 45px;
 
@@ -304,6 +307,7 @@ body {
     color: #ffffff;
     border-radius: 12px;
     padding: 12px 40px;
+    margin: -1px;
 
     text-decoration: none;
 
@@ -364,6 +368,16 @@ body {
     .request-element {
         max-width: 360px;
     }
+
+    .services-container {
+        gap: 40px;
+        justify-content: start;
+    }
+
+    .service-element {
+        width: 360px;
+        height: 320px;
+    }
 }
 
 /* Screen xl (Extra large) */
@@ -392,6 +406,15 @@ body {
     .request-element {
         max-width: 360px;
     }
+    .services-container {
+        gap: 40px;
+        justify-content: start;
+    }
+
+    .service-element {
+        width: 360px;
+        height: 320px;
+    }
 }
 
 /* Screen lg (Large) */
@@ -412,6 +435,11 @@ body {
     .request-element {
         max-width: 300px;
     }
+
+    .service-element {
+        width: 300px;
+        height: 280px;
+    }
 }
 
 /* Screen md (Medium) */
@@ -431,11 +459,25 @@ body {
     .request-element {
         max-width: 300px;
     }
+
+    .service-element {
+        width: 300px;
+        height: 280px;
+    }
 }
 
 /* Screen sm (Small) */
 @media (min-width: 576px) and (max-width: 767.98px) {
     .request-element-img {
         max-height: 250px;
+    }
+
+    .request-element {
+        max-width: 300px;
+    }
+
+    .service-element {
+        width: 300px;
+        height: 280px;
     }
 }
