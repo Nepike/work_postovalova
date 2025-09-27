@@ -12,7 +12,7 @@ SECRET_KEY = 'django-insecure-=co5+e^zqbmsc0q1*+y#!dpbbmf*_id45_4z&e9l5_&(h4i48m
 DEBUG = True
 
 # ngrok http 8000
-SITE_URL = 'https://881d-185-88-142-211.ngrok-free.app'  # any ngrok url (for tg webhook)
+SITE_URL = 'https://ca3cf0e54110.ngrok-free.app'  # any ngrok url (for tg webhook)
 CSRF_TRUSTED_ORIGINS = [
     SITE_URL,
 ]
