@@ -26,6 +26,7 @@ python manage.py collectstatic --noinput
 # Миграции
 python manage.py makemigrations
 python manage.py migrate
+python manage.py set_telegram_webhook
 
 # Запускаем gunicorn + deploy webhook
 pm2 restart gunicorn-postovalova
