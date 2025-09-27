@@ -104,6 +104,8 @@ STATIC_ROOT = 'static/'
 RECAPTCHA_PUBLIC_KEY = SITE_CONFIG["recaptcha"]["public_key"]
 RECAPTCHA_PRIVATE_KEY = SITE_CONFIG["recaptcha"]["private_key"]
 
+TGBOT_TOKEN = SITE_CONFIG["telegram_bot"].get("token", None)
+
 
 
 
