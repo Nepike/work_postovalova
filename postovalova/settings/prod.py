@@ -80,8 +80,8 @@ ALLOWED_HOSTS = [
     '194.87.43.18',
     '127.0.0.1',
     'localhost',
-    "nepike.ru",
-    "nepike.online"
+    'nepike.ru',
+    'nepike.online'
 ]
 
 ADMINS = [

@@ -98,16 +98,51 @@ sudo -u $USER pm2 save
 # SSL(только если есть домен кароч)
 sudo apt install certbot python3-certbot-nginx -y
 
-# Эти пункты надо делать вручную тк Certbot запрашивает email и принятие EULA
+# Этот пункт надо делать вручную тк Certbot запрашивает email и принятие EULA
+sudo certbot certonly --nginx -d ${MAIN_DOMEN} -d ${SIDE_DOMEN} # Other side domains enumeration here
 
-# Если НЕ нужен редирект с побочных доменов на главный
-sudo certbot --nginx -d ${MAIN_DOMEN} -d ${SIDE_DOMEN} # Other side domains enumeration here
-# Здесь Certbot автоматически вносит изменения в конфиг Nginx - надо бы проконтролировать, что он там понаписал
-sudo nginx -t && sudo systemctl reload nginx
+sudo tee /etc/nginx/sites-available/${PROJECT} > /dev/null <<EOL
+# Главный домен (HTTPS)
+server {
+    listen 443 ssl;
+    server_name ${MAIN_DOMEN};
 
-# Если нужен редирект с побочных доменов на главный
-sudo certbot certonly --nginx -d ${MAIN_DOMEN} -d ${SIDE_DOMEN}
-echo "
+    ssl_certificate /etc/letsencrypt/live/${MAIN_DOMEN}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${MAIN_DOMEN}/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+
+    location /static/ {
+        alias /srv/postovalova/static/;
+    }
+
+    location /deploy_webhook {
+        proxy_pass http://0.0.0.0:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/srv/postovalova/gunicorn.sock;
+    }
+
+}
+
+
+# HTTP -> HTTPS редирект главного домена
+server {
+    listen 80;
+    server_name ${MAIN_DOMEN};
+    return 301 https://$host$request_uri;
+}
+
+
+# Редиректы с побочных доменов на главный
 server {
     listen 80;
     listen 443 ssl;
@@ -118,6 +153,6 @@ server {
 
     return 301 https://${MAIN_DOMEN}$request_uri;
 }
-" >> /etc/nginx/sites-available/${PROJECT}
+EOL
 
 sudo nginx -t && sudo systemctl reload nginx
