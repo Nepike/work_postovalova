@@ -11,6 +11,8 @@ echo "=== DEPLOY START: $(date) ===" >> $LOGFILE
 
 cd $PROJECT_DIR || { echo "No project dir"; exit 1; }
 
+export STATIC_VERSION=$(date +%s)
+echo "STATIC_VERSION=$STATIC_VERSION" > ../.env
 
 # Сброс локальных изменений и обновление из git
 git reset --hard
