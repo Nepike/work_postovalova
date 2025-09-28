@@ -53,6 +53,11 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
+        'root': {
+            'handlers': ['file-error', 'console'],
+            'level': 'WARNING',
+        },
+
     },
 }
 
@@ -65,7 +70,7 @@ with open(CONFIG_PATH) as f:
 SECRET_KEY = SITE_CONFIG["secret_key"]
 DEBUG = False
 
-SITE_URL = 'http://194.87.43.18'  # главный домен вместе с https://
+SITE_URL = 'https://194.87.43.18'  # главный домен вместе с https://
 CSRF_TRUSTED_ORIGINS = [
     SITE_URL,
 ]
