@@ -349,6 +349,7 @@ body {
 
 #education {
     padding-top: 50px;
+    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -356,9 +357,65 @@ body {
     background: #2885DC;
 
     box-sizing: border-box;
-    border-radius: 40px;
+    border-radius: 40px 40px 0 0;
 /*    background: linear-gradient(180deg, rgb(239, 241, 246, 1) 0%, rgba(40, 133, 220, 1) 50%, rgba(40, 133, 220, 1) 100%);*/
 }
+
+.education-container {
+    display: flex;
+    justify-content: center;
+/*    align-items: start;*/
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    flex: 1 1 0;
+}
+
+.education-element {
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 0 rgba(85, 85, 85, 0.2);
+
+
+    font-size: 14px;
+    color: #172337;
+
+    width: 95%;
+/*    aspect-ratio: 1/0.9;*/
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    padding: 15px;
+
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.education-element i {
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+    color: #0f3457;
+
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.education-element:hover {
+    background: #0f3457;
+    color: #fff;
+}
+
+.education-element:hover i {
+    color: #fff;
+}
+
 
 
 /* Screen xxl (Extra extra large) */
@@ -399,6 +456,20 @@ body {
         min-height: 320px;
         padding: 40px;
         flex: 1 1 0;
+        aspect-ratio: unset;
+    }
+
+    .education-container {
+        gap: 40px;
+        justify-content: start;
+        align-items: stretch
+    }
+
+    .education-element {
+        min-width: 360px;
+        min-height: 112px;
+        padding: 20px 35px;
+        flex: 0 1 0;
         aspect-ratio: unset;
     }
 }
@@ -442,6 +513,20 @@ body {
         flex: 1 1 0;
         aspect-ratio: unset;
     }
+
+    .education-container {
+        gap: 40px;
+        justify-content: start;
+        align-items: stretch
+    }
+
+    .education-element {
+        min-width: 360px;
+        min-height: 320px;
+        padding: 40px;
+        flex: 1 1 0;
+        aspect-ratio: unset;
+    }
 }
 
 /* Screen lg (Large) */
@@ -473,6 +558,20 @@ body {
         flex: 0 1 0;
         aspect-ratio: unset;
     }
+
+    .education-container {
+        gap: 40px;
+        justify-content: start;
+        align-items: stretch
+    }
+
+    .education-element {
+        min-width: 360px;
+        min-height: 320px;
+        padding: 40px;
+        flex: 1 1 0;
+        aspect-ratio: unset;
+    }
 }
 
 /* Screen md (Medium) */
@@ -501,6 +600,20 @@ body {
         flex: 0 1 0;
         aspect-ratio: unset;
     }
+
+    .education-container {
+        gap: 40px;
+        justify-content: start;
+        align-items: stretch
+    }
+
+    .education-element {
+        min-width: 360px;
+        min-height: 320px;
+        padding: 40px;
+        flex: 1 1 0;
+        aspect-ratio: unset;
+    }
 }
 
 /* Screen sm (Small) */
@@ -517,6 +630,14 @@ body {
         min-width: 300px;
         min-height: 280px;
         flex: 0 1 0;
+        aspect-ratio: unset;
+    }
+
+    .education-element {
+        min-width: 360px;
+        min-height: 320px;
+        padding: 40px;
+        flex: 1 1 0;
         aspect-ratio: unset;
     }
 }
