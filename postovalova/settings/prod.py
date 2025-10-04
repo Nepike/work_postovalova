@@ -111,6 +111,10 @@ STATIC_ROOT = 'static/'
 RECAPTCHA_PUBLIC_KEY = SITE_CONFIG["recaptcha"]["public_key"]
 RECAPTCHA_PRIVATE_KEY = SITE_CONFIG["recaptcha"]["private_key"]
 
+AKISMET_API_KEY = SITE_CONFIG["akismet"]["api_key"]
+AKISMET_BLOG_URL = SITE_CONFIG["akismet"]["blog"]
+
+
 TGBOT_TOKEN = SITE_CONFIG["telegram_bot"].get("token", None)
 
 

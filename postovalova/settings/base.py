@@ -14,7 +14,8 @@ INSTALLED_APPS = [
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 	'core',
-	'telegram_bot'
+	'telegram_bot',
+	'django_recaptcha'
 ]
 
 MIDDLEWARE = [

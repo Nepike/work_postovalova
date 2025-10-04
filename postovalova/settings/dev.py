@@ -27,3 +27,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
 
 TGBOT_TOKEN = SITE_CONFIG["telegram_bot"].get("token", None)
+
+AKISMET_API_KEY = None
