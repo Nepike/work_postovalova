@@ -182,7 +182,7 @@
 		<div id="footer" style="height: 700px;">
 			<div class="wrapper-block">
 				<div class="block-title">Контакты</div>
-				<form action = "" method = "post">
+				<form action = "{% url 'home' %}" method = "POST" autocomplete="off" enctype='multipart/form-data'>
 				    {% csrf_token %}
 				    {{form.as_p }}
 				    <input type="submit" value="Submit">

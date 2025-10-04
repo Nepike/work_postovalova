@@ -23,6 +23,7 @@ def home(request):
             name = form.cleaned_data['name']
             contact = form.cleaned_data['contact']
             photo = form.cleaned_data.get('photo')
+            print(photo)
             user_ip = request.META.get('REMOTE_ADDR')
             user_agent = request.META.get('HTTP_USER_AGENT', '')
 
