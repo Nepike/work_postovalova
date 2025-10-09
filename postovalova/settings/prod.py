@@ -77,7 +77,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 ALLOWED_HOSTS = [
-    '194.87.43.18',
+    '158.255.1.227',
     '127.0.0.1',
     'localhost',
     'nepike.ru',
