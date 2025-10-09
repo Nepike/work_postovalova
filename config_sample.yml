@@ -1,5 +1,5 @@
 secret_key: 1234
-env: prod
+env: dev
 deploy_secret: 1234
 telegram_bot:
   token:
