@@ -55,11 +55,18 @@ pm2 save
 pm2 status
 
 # Настройка вебхука
-sudo -u user_postovalova pm2 delete deploy-postovalova 2> /dev/null
-sudo -u user_postovalova pm2 start "/srv/postovalova/virtualenv/bin/python" \
+pm2 delete deploy-postovalova 2> /dev/null
+pm2 start "/srv/postovalova/virtualenv/bin/python" \
     --name "deploy-postovalova" \
     -- /srv/postovalova/webhook_listener.py
 sudo -u user_postovalova pm2 save
+
+# Телеграм бот
+pm2 delete postovalova-tgbot 2> /dev/null
+pm2 start "/srv/postovalova/virtualenv/bin/python" \
+    --name "postovalova-tgbot" \
+    -- /srv/postovalova/tgbot.py
+pm2 save
 
 # Настройка Nginx
 sudo tee /etc/nginx/sites-available/postovalova > /dev/null <<EOL

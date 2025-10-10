@@ -3,7 +3,7 @@ from django.shortcuts import render
 import logging
 
 from django.template.loader import render_to_string
-from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 from telegram_bot.models import TelegramChat
 from .forms import FeedbackForm
@@ -53,9 +53,9 @@ def home(request):
             else:
                 rendered = render_to_string('telegram_bot/msg_feedback.html', {'issue': issue})
 
-                keyboard = InlineKeyboardMarkup(inline_keyboard=[
-                    [InlineKeyboardButton(text='✅ Пометить как решенное', callback_data='feedback_close_issue')],
-                    [InlineKeyboardButton(text='❗️ Пометить как спам', callback_data='feedback_report_spam')],
+                reply_markup = InlineKeyboardMarkup(inline_keyboard=[
+                    [InlineKeyboardButton(text='✅ Пометить как решенное', callback_data=f"feedback-close-issue_{1}")],
+                    [InlineKeyboardButton(text='❗️ Пометить как спам', callback_data=f"feedback-report-spam_{1}")],
                 ])
 
                 if photo:
@@ -65,14 +65,14 @@ def home(request):
                             photo=local_file,
                             caption=rendered,
                             parse_mode="HTML",
-                            reply_markup=keyboard,
+                            reply_markup=reply_markup,
                             pinned=True
                         )
                 else:
                     TelegramChat.objects.filter(name="support").first().send_message(
                         text=rendered,
                         parse_mode="HTML",
-                        reply_markup=keyboard,
+                        reply_markup=reply_markup,
                         pinned=True
                     )
 
