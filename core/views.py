@@ -4,8 +4,9 @@ import logging
 
 from django.template.loader import render_to_string
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-
 from telegram_bot.models import TelegramChat
+import asyncio
+
 from .forms import FeedbackForm
 from .models import FeedbackRequest
 from django.conf import settings
@@ -61,20 +62,20 @@ def home(request):
                 if photo:
                     path = issue.photo.path
                     with open(path, 'rb') as local_file:
-                        TelegramChat.objects.filter(name="support").first().send_photo(
-                            photo=local_file,
+                        asyncio.run(TelegramChat.objects.filter(name="support").first().send_document(
+                            document=local_file,
                             caption=rendered,
+                            pinned=True,
                             parse_mode="HTML",
                             reply_markup=reply_markup,
-                            pinned=True
-                        )
+                        ))
                 else:
-                    TelegramChat.objects.filter(name="support").first().send_message(
+                    asyncio.run(TelegramChat.objects.filter(name="support").first().send_message(
                         text=rendered,
+                        pinned=True,
                         parse_mode="HTML",
                         reply_markup=reply_markup,
-                        pinned=True
-                    )
+                    ))
 
                 form = FeedbackForm()
                 return render(request, "core/home.html", context={'form': form, 'alert_success': "Сообщение отправлено!"})
