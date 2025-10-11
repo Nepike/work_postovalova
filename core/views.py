@@ -3,9 +3,9 @@ from django.shortcuts import render
 import logging
 
 from django.template.loader import render_to_string
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram_bot.models import TelegramChat
-import asyncio
+
 
 from .forms import FeedbackForm
 from .models import FeedbackRequest
@@ -54,28 +54,28 @@ def home(request):
             else:
                 rendered = render_to_string('telegram_bot/msg_feedback.html', {'issue': issue})
 
-                reply_markup = InlineKeyboardMarkup(inline_keyboard=[
-                    [InlineKeyboardButton(text='✅ Пометить как решенное', callback_data=f"feedback-close-issue_{1}")],
-                    [InlineKeyboardButton(text='❗️ Пометить как спам', callback_data=f"feedback-report-spam_{1}")],
+                reply_markup = InlineKeyboardMarkup(keyboard=[
+                    [InlineKeyboardButton(text='✅ Пометить как решенное', callback_data=f"feedback-close-issue_{issue.id}")],
+                    [InlineKeyboardButton(text='❗️ Пометить как спам', callback_data=f"feedback-report-spam_{issue.id}")],
                 ])
 
                 if photo:
                     path = issue.photo.path
                     with open(path, 'rb') as local_file:
-                        asyncio.run(TelegramChat.objects.filter(name="support").first().send_document(
+                        TelegramChat.objects.filter(name="support").first().send_document(
                             document=local_file,
                             caption=rendered,
                             pinned=True,
                             parse_mode="HTML",
                             reply_markup=reply_markup,
-                        ))
+                        )
                 else:
-                    asyncio.run(TelegramChat.objects.filter(name="support").first().send_message(
+                    TelegramChat.objects.filter(name="support").first().send_message(
                         text=rendered,
                         pinned=True,
                         parse_mode="HTML",
                         reply_markup=reply_markup,
-                    ))
+                    )
 
                 form = FeedbackForm()
                 return render(request, "core/home.html", context={'form': form, 'alert_success': "Сообщение отправлено!"})

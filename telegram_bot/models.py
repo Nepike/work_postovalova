@@ -1,8 +1,9 @@
 from django.db import models
-from tgbot import TelegramBot
+from django.conf import settings
+import telebot
 
 
-TGBOT = TelegramBot.get_bot()
+TGBOT = telebot.TeleBot(settings.TGBOT_TOKEN)
 
 
 class TelegramChat(models.Model):
@@ -18,24 +19,24 @@ class TelegramChat(models.Model):
     def __str__(self):
         return self.name
 
-    async def send_message(self, text, pinned=None, **kwargs):
-        msg = await TGBOT.sendMessage(chat_id=self.chat_id, text=text, message_thread_id=self.first_message_id, **kwargs)
+    def send_message(self, text, pinned=None, **kwargs):
+        msg = TGBOT.send_message(chat_id=self.chat_id, text=text, message_thread_id=self.first_message_id, **kwargs)
 
         if pinned:
             try:
-                await TGBOT.pin_chat_message(chat_id=self.chat_id, message_id=msg.message_id)
+                TGBOT.pin_chat_message(chat_id=self.chat_id, message_id=msg.message_id)
             except Exception as e:
                 error_message = "Не удалось закрепить сообщение: " + str(e)
-                await TGBOT.sendMessage(chat_id=self.chat_id, text=error_message, reply_to_message_id=msg.message_id)
+                TGBOT.send_message(chat_id=self.chat_id, text=error_message, reply_to_message_id=msg.message_id)
 
-    async def send_document(self, document, pinned=None, **kwargs):
-        msg = await TGBOT.sendDocument(chat_id=self.chat_id, document=document, message_thread_id=self.first_message_id, **kwargs)
+    def send_document(self, document, pinned=None, **kwargs):
+        msg = TGBOT.send_document(chat_id=self.chat_id, document=document, message_thread_id=self.first_message_id, **kwargs)
 
         if pinned:
             try:
-                await TGBOT.pin_chat_message(chat_id=self.chat_id, message_id=msg.message_id)
+                TGBOT.pin_chat_message(chat_id=self.chat_id, message_id=msg.message_id)
             except Exception as e:
                 error_message = "Не удалось закрепить сообщение: " + str(e)
-                await TGBOT.sendMessage(chat_id=self.chat_id, text=error_message, reply_to_message_id=msg.message_id)
+                TGBOT.send_message(chat_id=self.chat_id, text=error_message, reply_to_message_id=msg.message_id)
 
 

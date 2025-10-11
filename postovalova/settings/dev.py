@@ -1,6 +1,5 @@
 from .base import *
 import yaml
-from telegram import Bot
 
 LOG_PATH = BASE_DIR / 'logs'
 
