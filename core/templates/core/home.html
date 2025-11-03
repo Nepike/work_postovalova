@@ -162,19 +162,19 @@
 			<div class="wrapper-block">
 				<div class="block-title" style="color:#fff">Образование</div>
 				<div class="education-container">
-					<div class="education-element">Московский институт психоанализа, Магистратура по клинической психологии <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Институт психотерапии и клинической психологии, Практический психолог <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Институт психотерапии и клинической психологии, ДПДГ специалист <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Институт психотерапии и клинической психологии, Специалист по групповой психотерапии <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Институт психотерапии и клинической психологии, НЛП Мастер, НЛП Практик, международный сертификат по НЛП новый код <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Институт психотерапии и клинической психологии, НЛП Мастер, НЛП Практик <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Московский институт психоанализа, Трансперсональный коучинг <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Центр Метафора, Психологическое сопровождение горя и утраты <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">ИПМП им. Б.Д. Карвасарского, Кризисный максимум современного психотерапевта <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Общероссийская Профессиональная Психотерапевтическая Лига <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Центр Метафора, Психотерапия интимных и сексуальных отношений <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Центр Метафора, Комплексный подход в терапии психотравмы <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element">Московский институт психоанализа, Метафорические карты в психотерапии <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/1.jpg' %}?v={{ STATIC_VERSION }}">Московский институт психоанализа, Магистратура по клинической психологии <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/2.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, Практический психолог <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/3.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, ДПДГ специалист <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/4.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, Специалист по групповой психотерапии <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/5.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, НЛП Мастер, НЛП Практик, международный сертификат по НЛП новый код <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/6.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, НЛП Мастер, НЛП Практик <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/7.jpg' %}?v={{ STATIC_VERSION }}">Московский институт психоанализа, Трансперсональный коучинг <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/8.jpg' %}?v={{ STATIC_VERSION }}">Центр Метафора, Психологическое сопровождение горя и утраты <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/9.jpg' %}?v={{ STATIC_VERSION }}">ИПМП им. Б.Д. Карвасарского, Кризисный максимум современного психотерапевта <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/10.jpg' %}?v={{ STATIC_VERSION }}">Общероссийская Профессиональная Психотерапевтическая Лига <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/11.jpg' %}?v={{ STATIC_VERSION }}">Центр Метафора, Психотерапия интимных и сексуальных отношений <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/12.jpg' %}?v={{ STATIC_VERSION }}">Центр Метафора, Комплексный подход в терапии психотравмы <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/13.jpg' %}?v={{ STATIC_VERSION }}">Московский институт психоанализа, Метафорические карты в психотерапии <i class="fa-solid fa-file fa-xl"></i></div>
 				</div>
 			</div>
 		</div>
@@ -182,12 +182,28 @@
 		<div id="footer" style="height: 700px;">
 			<div class="wrapper-block">
 				<div class="block-title">Контакты</div>
-				<form action = "{% url 'home' %}" method = "POST" autocomplete="off" enctype='multipart/form-data'>
-				    {% csrf_token %}
-				    {{form.as_p }}
-				    <input type="submit" value="Submit">
-				</form>
 			</div>
+		</div>
+
+		<!-- Модальное окно для дипломов -->
+		<div id="diplomaModal" class="modal">
+			<span class="modal-close">&times;</span>
+		    <div class="modal-content">
+		        <img id="diplomaImage" src="" alt="Диплом">
+		    </div>
+		</div>
+
+		<!-- Модальное окно для формы записи -->
+		<div id="formModal" class="modal">
+		    <div class="modal-content form-modal">
+		        <span class="modal-close">&times;</span>
+		        <div class="block-title">Записаться</div>
+		        <form action="{% url 'home' %}" method="POST" autocomplete="off" enctype='multipart/form-data'>
+		            {% csrf_token %}
+		            {{ form.as_p }}
+		            <input type="submit" value="Отправить заявку" class="submit-button">
+		        </form>
+		    </div>
 		</div>
 
 	</body>

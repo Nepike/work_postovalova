@@ -21,3 +21,46 @@ function alertDanger(message, duration) {
         }, 600); // Время должно совпадать с transition из CSS
     }, duration);
 }
+
+
+$(document).ready(function() {
+    function openModal(modalId) {
+        $('body').addClass('no-scroll');
+        $(modalId).addClass('show');
+    }
+
+    function closeModal(modalId) {
+        $('body').removeClass('no-scroll');
+        $(modalId).removeClass('show');
+    }
+
+    $('.education-element').on('click', function() {
+        const diplomaSrc = $(this).data('diploma');
+        $('#diplomaImage').attr('src', diplomaSrc);
+        openModal('#diplomaModal');
+    });
+
+    $('.service-main-button').on('click', function(e) {
+        e.preventDefault();
+        openModal('#formModal');
+    });
+
+    $('.modal-close').on('click', function() {
+        const modal = $(this).closest('.modal');
+        closeModal(modal);
+    });
+
+    $('.modal').on('click', function(e) {
+        if ($(e.target).hasClass('modal')) {
+            closeModal($(this));
+        }
+    });
+
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') {
+            $('.modal.show').each(function() {
+                closeModal($(this));
+            });
+        }
+    });
+});
