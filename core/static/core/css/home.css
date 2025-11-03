@@ -422,6 +422,102 @@ body.no-scroll {
 }
 
 
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 0 30px 0;
+}
+
+
+.contacts-container, .more-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.more-container {
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.contact-line {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: 30px;
+  gap: 10px;
+  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  text-decoration: none;
+  color: var(--text-color, #0f172a);
+  transition: all 0.2s ease;
+}
+
+.contact-line i {
+  background: #0f172a;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.contact-line:hover {
+  background: #a5abbb;
+}
+
+
+
+#get-help-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--button-bg, #a5abbb);
+  color: var(--text-color, #0f172a);
+  padding: 20px 40px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#get-help-button:hover {
+  background: var(--accent-color, #3b82f6);
+  color: #fff;
+}
+
+.more-line a {
+  color: var(--accent-color, #3b82f6);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.more-line a:hover {
+  opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* Модальные окна */
 .modal {
     display: none;
@@ -430,11 +526,12 @@ body.no-scroll {
     left: 0;
     top: 0;
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     opacity: 0;
     transition: opacity 0.3s ease;
+    overflow-y: auto;
 }
 
 .modal.show {
@@ -463,6 +560,11 @@ body.no-scroll {
     cursor: pointer;
     z-index: 1001;
     transition: color 0.3s ease;
+}
+
+.form-modal .modal-close {
+    color: currentColor;
+    font-size: clamp(30px, 4vw, 50px);
 }
 
 .modal-close:hover {
@@ -699,9 +801,9 @@ body.no-scroll {
 
     .education-element {
         min-width: 360px;
-        min-height: 320px;
-        padding: 40px;
-        flex: 1 1 0;
+        min-height: 112px;
+        padding: 20px 35px;
+        flex: 0 1 0;
         aspect-ratio: unset;
     }
 
@@ -744,15 +846,9 @@ body.no-scroll {
         aspect-ratio: unset;
     }
 
-    .education-container {
-        gap: 40px;
-        justify-content: start;
-        align-items: stretch
-    }
-
     .education-element {
-        min-width: 360px;
-        min-height: 320px;
+        min-width: 300px;
+        max-height: 112px;
         padding: 40px;
         flex: 1 1 0;
         aspect-ratio: unset;
@@ -797,15 +893,9 @@ body.no-scroll {
         aspect-ratio: unset;
     }
 
-    .education-container {
-        gap: 40px;
-        justify-content: start;
-        align-items: stretch
-    }
-
     .education-element {
-        min-width: 360px;
-        min-height: 320px;
+        min-width: 300px;
+        max-height: 112px;
         padding: 40px;
         flex: 1 1 0;
         aspect-ratio: unset;
@@ -830,9 +920,14 @@ body.no-scroll {
         aspect-ratio: unset;
     }
 
+    .education-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .education-element {
-        min-width: 360px;
-        min-height: 320px;
+        min-width: 300px;
+        max-height: 80px;
         padding: 40px;
         flex: 1 1 0;
         aspect-ratio: unset;

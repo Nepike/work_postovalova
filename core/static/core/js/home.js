@@ -45,6 +45,11 @@ $(document).ready(function() {
         openModal('#formModal');
     });
 
+    $('#get-help-button').on('click', function(e) {
+        e.preventDefault();
+        openModal('#formModal');
+    });
+
     $('.modal-close').on('click', function() {
         const modal = $(this).closest('.modal');
         closeModal(modal);
