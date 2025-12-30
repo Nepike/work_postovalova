@@ -157,6 +157,14 @@ body.no-scroll {
     margin-left: -10px;
 }
 
+#services, #education {
+    scroll-margin-top: 40px;
+}
+
+#requests {
+    scroll-margin-top: 65px;
+}
+
 
 
 #about {
