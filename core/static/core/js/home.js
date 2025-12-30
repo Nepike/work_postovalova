@@ -24,6 +24,7 @@ function alertDanger(message, duration) {
 
 
 $(document).ready(function() {
+
     function openModal(modalId) {
         $('body').addClass('no-scroll');
         $(modalId).addClass('show');
@@ -33,6 +34,25 @@ $(document).ready(function() {
         $('body').removeClass('no-scroll');
         $(modalId).removeClass('show');
     }
+
+
+    $( "#burger-toggler" ).on( "click", function() {
+        $('#body-overlay').show();
+        $('#navbar-right').show();
+    });
+
+    $( "#close-right" ).on( "click", function() {
+        $('#body-overlay').hide()
+        $('#navbar-right').hide()
+    });
+
+    $( "#body-overlay" ).on( "click", function() {
+        $('#body-overlay').hide()
+        $('#navbar-right').hide()
+    });
+
+
+
 
     $('.education-element').on('click', function() {
         const diplomaSrc = $(this).data('diploma');

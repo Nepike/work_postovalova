@@ -31,7 +31,6 @@
 	</head>
 
 
-	<header></header>
 
 	<body>
 		<div id="alert-danger">
@@ -59,6 +58,52 @@
 				{% endif %}
 			});
 		</script>
+
+		<div id="navbar-lg" class="navbar">
+			<ul class="navbar-line">
+				<li class="nav-item"><a href="{% url 'home' %}">Главная</a></li>
+				<li class="nav-item"><a href="#about">Обо мне</a></li>
+				<li class="nav-item"><a href="#requests">Запросы</a></li>
+				<li class="nav-item"><a href="#services">Услуги</a></li>
+				<li class="nav-item"><a href="#education">Образование</a></li>
+				<li class="nav-item"><a href="{% url 'groups' %}">Психологические группы</a></li>
+				<li class="nav-item"><a href="tel:79096757868" class="nav-phone"><i class="fa-solid fa-phone"></i> +7 909 675-78-68</a></li>
+				<li class="nav-item">
+					<a href="https://t.me/Olga_Postovalova" target="_blank" class="nav-contact"><i class="fa-brands fa-telegram"></i></a>
+					<a href="https://api.whatsapp.com/send/?phone=%2B79096757868&text&type=phone_number&app_absent=0" target="_blank" class="nav-contact"><i class="fa-brands fa-whatsapp"></i></a>
+				</li>
+			</ul>
+		</div>
+
+		<div id="navbar-sm" class="navbar">
+			<ul class="navbar-line">
+				<li class="nav-item"><a id="burger-toggler"><i class="fa-solid fa-bars" aria-hidden="true"></i></a></li>
+				<li class="nav-item">
+					<a href="tel:79096757868" class="nav-phone"><i class="fa-solid fa-phone"></i> +7 909 675-78-68</a>
+					<a href="https://t.me/Olga_Postovalova" target="_blank" class="nav-contact"><i class="fa-brands fa-telegram"></i></a>
+					<a href="https://api.whatsapp.com/send/?phone=%2B79096757868&text&type=phone_number&app_absent=0" target="_blank" class="nav-contact"><i class="fa-brands fa-whatsapp"></i></a>
+				</li>
+			</ul>
+		</div>
+
+		{% url 'home' as home_url %}
+    	{% url 'groups' as groups_url %}
+
+		<div id="navbar-right" class="sidebar">
+            <div id="navbar-right-wrapper">
+                <div id="close-right">ЗАКРЫТЬ</div>
+                <ul id="navbar-right-menu">
+                    <li class="menu-item {% if home_url in request.path %}active{% endif %}"><a href="{{ home_url }}">Главная</a></li>
+                    <li class="menu-item"><a href="#about">Обо мне</a></li>
+					<li class="menu-item"><a href="#requests">Запросы</a></li>
+					<li class="menu-item"><a href="#services">Услуги</a></li>
+					<li class="menu-item"><a href="#education">Образование</a></li>
+                    <li class="menu-item {% if groups_url in request.path %}active{% endif %}"><a href="{{ groups_url }}">Психологические группы</a></li>
+                    <li class="menu-item"><a href="tel:79096757868" class="menu-phone"><i class="fa-solid fa-phone"></i> +7 909 675-78-68</a></li>
+                </ul>
+            </div>
+        </div>
+
 
 
 
@@ -216,5 +261,6 @@
 		    </div>
 		</div>
 
+		<div id="body-overlay"></div>
 	</body>
 </html>
