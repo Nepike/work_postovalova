@@ -73,6 +73,10 @@ body.no-scroll {
 #navbar-sm .nav-phone {display: none;}
 
 
+#navbar-sm.navbar {
+    height: 68px;
+}
+
 .navbar {
     position: sticky;
 
@@ -80,6 +84,7 @@ body.no-scroll {
     top: 10px;
     height: 80px;
     width: 100%;
+    max-width: 97%;
 
     margin-left: auto;
     margin-right: auto;
@@ -101,7 +106,7 @@ body.no-scroll {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 100%;
     gap: 2rem;
 }
 

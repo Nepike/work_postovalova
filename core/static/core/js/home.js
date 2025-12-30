@@ -46,6 +46,15 @@ $(document).ready(function() {
         $('#navbar-right').hide()
     });
 
+    $( "#navbar-right .menu-item" ).on( "click", function() {
+        setTimeout(function() {
+            $('#body-overlay').hide()
+            $('#navbar-right').hide()
+        }, 50);
+        
+    });
+
+
     $( "#body-overlay" ).on( "click", function() {
         $('#body-overlay').hide()
         $('#navbar-right').hide()
