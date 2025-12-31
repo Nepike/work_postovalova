@@ -79,6 +79,11 @@ $(document).ready(function() {
         openModal('#formModal');
     });
 
+    $('#about .help-button').on('click', function(e) {
+        e.preventDefault();
+        openModal('#formModal');
+    });
+
     $('.modal-close').on('click', function() {
         const modal = $(this).closest('.modal');
         closeModal(modal);
