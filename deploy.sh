@@ -11,8 +11,6 @@ echo "=== DEPLOY START: $(date) ===" >> $LOGFILE
 
 cd $PROJECT_DIR || { echo "No project dir"; exit 1; }
 
-export STATIC_VERSION=$(date +%s)
-echo "STATIC_VERSION=$STATIC_VERSION" > ../.env
 
 # Сброс локальных изменений и обновление из git
 git reset --hard
@@ -23,12 +21,13 @@ source $VENV_DIR/bin/activate
 pip install -r requirements.txt
 
 # Собираем статику (если нужно)
+rm -rf static
 python manage.py collectstatic --noinput
+
 
 # Миграции
 python manage.py makemigrations
 python manage.py migrate
-#python manage.py set_telegram_webhook
 
 # Запускаем gunicorn + deploy webhook
 pm2 restart gunicorn-postovalova
