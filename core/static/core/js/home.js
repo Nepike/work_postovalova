@@ -35,6 +35,10 @@ $(document).ready(function() {
         $(modalId).removeClass('show');
     }
 
+    if (window.openFormModal) {
+        openModal('#formModal');
+    }
+
 
     $( "#burger-toggler" ).on( "click", function() {
         $('#body-overlay').show();

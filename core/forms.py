@@ -2,6 +2,8 @@ from django import forms
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Checkbox
 from django.core.exceptions import ValidationError
+from django.templatetags.static import static
+from django.utils.safestring import mark_safe
 
 
 class FeedbackForm(forms.Form):
@@ -9,7 +11,7 @@ class FeedbackForm(forms.Form):
         label='Услуга или запрос',
         max_length=1000,
         min_length=10,
-        widget=forms.Textarea(attrs={'rows': 5}),
+        widget=forms.Textarea(attrs={'rows': 4}),
         required=True,
     )
 
@@ -24,6 +26,14 @@ class FeedbackForm(forms.Form):
         max_length=100,
         required=True,
     )
+
+    accept_policy = forms.BooleanField(
+        required=True,
+        label='Согласен с обработкой данных',
+        initial=True
+    )
+
+
 
     def validate_file_size(value):
         filesize = value.size

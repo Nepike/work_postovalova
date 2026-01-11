@@ -104,8 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-STATIC_URL = 'static/'
-STATIC_ROOT = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static/'
+
 
 
 RECAPTCHA_PUBLIC_KEY = SITE_CONFIG["recaptcha"]["public_key"]
