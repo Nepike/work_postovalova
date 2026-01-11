@@ -83,3 +83,6 @@ def home(request):
         form = FeedbackForm()
 
     return render(request, "core/home.html", {'form': form})
+
+def groups(request):
+    return render(request, "core/groups.html")

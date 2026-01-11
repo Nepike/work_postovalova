@@ -204,7 +204,7 @@
 						<div class="service-description">Онлайн либо очно по адресу: <br><i class="fa-solid fa-location-dot"></i> Москва, Воротынская 8/1</div>
 						<div class="service-main-block">
 							<a href="" class="service-main-button">Записаться</a>
-							<div class="service-main-text">6000 <i class="fa-solid fa-ruble-sign"></i></div>
+							<div class="service-main-text">7000 <i class="fa-solid fa-ruble-sign"></i></div>
 						</div>
 					</div>
 					<div class="service-element">
@@ -215,7 +215,7 @@
 							<a href="" class="service-main-button">Записаться</a>
 							<div class="service-main-text">20000 <i class="fa-solid fa-ruble-sign"></i></div>
 						</div>
-						<a href="" class="service-secondary-button">Подробнее <i class="fa-solid fa-square-arrow-up-right"></i></a>
+						<a href="{% url 'groups' %}#group1" class="service-secondary-button">Подробнее <i class="fa-solid fa-square-arrow-up-right"></i></a>
 					</div>
 					<div class="service-element">
 						<div class="service-label">120 минут</div>
@@ -238,7 +238,7 @@
 					<div class="education-element" data-diploma="{% static 'core/img/diplomas/2.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, Практический психолог <i class="fa-solid fa-file fa-xl"></i></div>
 					<div class="education-element" data-diploma="{% static 'core/img/diplomas/3.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, ДПДГ специалист <i class="fa-solid fa-file fa-xl"></i></div>
 					<div class="education-element" data-diploma="{% static 'core/img/diplomas/4.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, Специалист по групповой психотерапии <i class="fa-solid fa-file fa-xl"></i></div>
-					<div class="education-element" data-diploma="{% static 'core/img/diplomas/5.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, НЛП Мастер, НЛП Практик, международный сертификат по НЛП новый код <i class="fa-solid fa-file fa-xl"></i></div>
+					<div class="education-element" data-diploma="{% static 'core/img/diplomas/5.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии <br> Когнитивно-поведенческая терапия <i class="fa-solid fa-file fa-xl"></i></div>
 					<div class="education-element" data-diploma="{% static 'core/img/diplomas/6.jpg' %}?v={{ STATIC_VERSION }}">Институт психотерапии и клинической психологии, НЛП Мастер, НЛП Практик <i class="fa-solid fa-file fa-xl"></i></div>
 					<div class="education-element" data-diploma="{% static 'core/img/diplomas/7.jpg' %}?v={{ STATIC_VERSION }}">Московский институт психоанализа, Трансперсональный коучинг <i class="fa-solid fa-file fa-xl"></i></div>
 					<div class="education-element" data-diploma="{% static 'core/img/diplomas/8.jpg' %}?v={{ STATIC_VERSION }}">Центр Метафора, Психологическое сопровождение горя и утраты <i class="fa-solid fa-file fa-xl"></i></div>
@@ -254,15 +254,24 @@
 		<div id="footer">
 			<div class="wrapper-block">
 				<div class="block-title">Контакты</div>
-				<div class="contacts-container">
-					<a href="https://t.me/Olga_Postovalova" target="_blank" class="contact-line"><i class="fa-brands fa-telegram"></i>@Olga_Postovalova</a>
-					<a href="https://api.whatsapp.com/send/?phone=%2B79096757868&text&type=phone_number&app_absent=0" target="_blank" class="contact-line"><i class="fa-brands fa-whatsapp"></i>+7 909 675-78-68</a>
-					<a href="mailto:vulpis@yandex.ru" target="_blank" class="contact-line"><i class="fa-solid fa-envelope"></i>vulpis@yandex.ru</a>
-				</div>
-				<div class="more-container">
-					<div class="more-line"><a id="get-help-button" href="">Получить помощь <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
-					<div class="more-line">Сайт разработал: <a href="https://github.com/Nepike" target="_blank">Nepike</a></div>
-					<div class="more-line">© olgapostovalova.ru, 2025</div>
+				<div class="footer-container">
+
+					<div class="contacts-container">
+						<a href="https://t.me/Olga_Postovalova" target="_blank" class="contact-line"><i class="fa-brands fa-telegram"></i>@Olga_Postovalova</a>
+						<a href="https://api.whatsapp.com/send/?phone=%2B79096757868&text&type=phone_number&app_absent=0" target="_blank" class="contact-line"><i class="fa-brands fa-whatsapp"></i>+7 909 675-78-68</a>
+						<a href="mailto:vulpis@yandex.ru" target="_blank" class="contact-line"><i class="fa-solid fa-envelope"></i>vulpis@yandex.ru</a>
+					</div>
+
+					<div class="more-wrapper">
+						<div class="more-container">
+							<div class="more-line"><a href="{% static 'core/files/Политика обработки перс данных.docx' %}">Политика обработки персональных данных</a></div>
+							<div class="more-line"><a href="{% static 'core/files/Согласие_на_обработку_персональных_данных.docx' %}">Согласие на обработку персональных данных</a></div>
+							<div class="more-line"><a href="{% static 'core/files/ДОГОВОР_ОФЕРТЫ_НА_ОКАЗАНИЕ_ПСИХОЛОГИЧЕСКИХ_УСЛУГ.docx' %}">Договор оферты на оказание услуг</a></div>
+							<div class="more-line">Сайт разработал: <a href="https://github.com/Nepike" target="_blank">Nepike</a></div>
+							<div class="more-line">© olgapostovalova.ru, 2026</div>
+						</div>
+						<div class="more-line"><a id="get-help-button">Получить помощь <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+					</div>
 				</div>
 			</div>
 		</div>
