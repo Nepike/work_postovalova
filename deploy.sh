@@ -30,8 +30,8 @@ python manage.py makemigrations
 python manage.py migrate
 
 # Запускаем gunicorn + deploy webhook
-pm2 restart gunicorn-postovalova
-pm2 restart postovalova-tgbot
-pm2 restart deploy-postovalova
+pm2 restart postovalova:web
+pm2 restart postovalova:tgbot
+pm2 restart postovalova:deploy-listener
 
 echo "=== DEPLOY END: $(date) ===" >> $LOGFILE
