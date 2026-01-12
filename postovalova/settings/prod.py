@@ -70,18 +70,19 @@ with open(CONFIG_PATH) as f:
 SECRET_KEY = SITE_CONFIG["secret_key"]
 DEBUG = True
 
-SITE_URL = 'https://nepike.ru'  # главный домен вместе с https://
+SITE_URL = 'https://nepike.online'  # главный домен вместе с https://
 CSRF_TRUSTED_ORIGINS = [
     SITE_URL,
 ]
 
 
 ALLOWED_HOSTS = [
-    '158.255.1.227',
+    '91.218.9.78',
     '127.0.0.1',
     'localhost',
     'nepike.ru',
-    'nepike.online'
+    'nepike.online',
+    'olgapostovalova.ru'
 ]
 
 ADMINS = [
