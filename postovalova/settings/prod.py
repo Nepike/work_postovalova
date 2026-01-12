@@ -68,7 +68,7 @@ with open(CONFIG_PATH) as f:
 
 
 SECRET_KEY = SITE_CONFIG["secret_key"]
-DEBUG = True
+DEBUG = False
 
 SITE_URL = 'https://nepike.online'  # главный домен вместе с https://
 CSRF_TRUSTED_ORIGINS = [
@@ -78,6 +78,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 ALLOWED_HOSTS = [
     '91.218.9.78',
+    '192.168.0.10',
     '127.0.0.1',
     'localhost',
     'nepike.ru',
