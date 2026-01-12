@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Путь к проекту
-PROJECT_DIR=/srv/postovalova
+PROJECT_DIR=/srv/postovalova-website
 VENV_DIR=$PROJECT_DIR/virtualenv
 
 # Лог файл деплоя
-LOGFILE=$PROJECT_DIR/deploy.log
+LOGFILE=$PROJECT_DIR/logs/deploy.log
 
 echo "=== DEPLOY START: $(date) ===" >> $LOGFILE
 
