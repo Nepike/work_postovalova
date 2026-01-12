@@ -77,11 +77,11 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 ALLOWED_HOSTS = [
+    'nepike.ru',
+    '127.0.0.1',
+    'localhost',
     '91.218.9.78',
     '192.168.0.10',
-    'nepike.ru',
-    'nepike.online',
-    'olgapostovalova.ru'
 ]
 
 ADMINS = [
