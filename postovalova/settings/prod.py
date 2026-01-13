@@ -82,6 +82,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '91.218.9.78',
     '192.168.0.10',
+    'olgapostovalova.ru'
 ]
 
 ADMINS = [

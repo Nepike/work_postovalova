@@ -75,16 +75,26 @@ $(document).ready(function() {
 
     $('.service-main-button').on('click', function(e) {
         e.preventDefault();
+        let issue = $(this).closest('.service-element').find('.service-title').text().trim();
+        $('#id_issue').text(issue);
         openModal('#formModal');
     });
 
     $('#get-help-button').on('click', function(e) {
         e.preventDefault();
+        $('#id_issue').text('');
         openModal('#formModal');
     });
 
     $('#about .help-button').on('click', function(e) {
         e.preventDefault();
+        $('#id_issue').text('');
+        openModal('#formModal');
+    });
+
+    $('#group1 .group-button').on('click', function(e) {
+        e.preventDefault();
+        $('#id_issue').text('Запись на собеседование на тренинг «Возрождение»');
         openModal('#formModal');
     });
 
