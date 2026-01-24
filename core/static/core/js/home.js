@@ -94,7 +94,7 @@ $(document).ready(function() {
 
     $('#group1 .group-button').on('click', function(e) {
         e.preventDefault();
-        $('#id_issue').text('Запись на собеседование на тренинг «Возрождение»');
+        $('#id_issue').text('Запись на собеседование в группу «Комплекс Лилит»');
         openModal('#formModal');
     });
 

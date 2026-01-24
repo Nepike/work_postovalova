@@ -241,7 +241,7 @@ body.no-scroll {
 #info-wrapper .description {
     position: relative;
     color: white;
-    padding-left: 20px;
+    /*padding-left: 20px;*/
 
     font-size: 20px;
     line-height: 26px;
@@ -250,18 +250,18 @@ body.no-scroll {
     margin-top: 20px;
 }
 
-#info-wrapper .description::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 6px;
-    height: 6px;
-    background-color: white;
-    border-radius: 50%;
+/*#info-wrapper .description::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    top: 10px;*/
+/*    width: 6px;*/
+/*    height: 6px;*/
+/*    background-color: white;*/
+/*    border-radius: 50%;*/
 
-    display: none;
-}
+/*    display: none;*/
+/*}*/
 
 
 #info-wrapper .help-button {
