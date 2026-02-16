@@ -619,6 +619,7 @@ body.no-scroll {
 
 .service-main-text i {
     font-size: 18px;
+    margin: -4px;
 }
 
 .service-secondary-button {
