@@ -586,7 +586,7 @@ body.no-scroll {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 
     height: 45px;
 
