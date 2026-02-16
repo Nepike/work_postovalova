@@ -239,6 +239,7 @@ body.no-scroll {
 }
 
 #info-wrapper .description {
+    z-index: 2;
     position: relative;
     color: white;
     /*padding-left: 20px;*/
