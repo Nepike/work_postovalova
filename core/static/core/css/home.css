@@ -24,7 +24,7 @@ body {
 
 body.no-scroll {
     overflow: hidden;
-}
+} 
 
 
 #alert-danger,
@@ -614,7 +614,11 @@ body.no-scroll {
 .service-main-text {
     display: inline;
     height: fit-content;
-    font-size: 20px;
+    font-size: 19px;
+}
+
+.service-main-text i {
+    font-size: 18px;
 }
 
 .service-secondary-button {
