@@ -614,12 +614,9 @@ body.no-scroll {
 .service-main-text {
     display: inline;
     height: fit-content;
-    font-size: 19px;
+    font-size: 20px;
 }
 
-.service-main-text i {
-    font-size: 18px;
-}
 
 .service-secondary-button {
     box-sizing: border-box;
