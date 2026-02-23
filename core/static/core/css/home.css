@@ -1694,11 +1694,11 @@ body.no-scroll {
     }
 
     #profile {
-        width: 600px;
+        width: 500px;
         position: absolute;
         bottom: 145px;
         right: 54px;
-        right: calc((100% - 643px) /2);
+        right: calc((100% - 543px) /2);
     }
     #about-header::after {
         position: absolute;
@@ -1718,12 +1718,6 @@ body.no-scroll {
 
 }
 
-@media (min-width: 576px) and (max-width: 650px) {
- #profile {
-    width: 555px;
-    right: clamp(-4px, -1vw, 16px);
- }
-}
 
 @media (max-width: 575.98px) {
     #info-wrapper .name {
