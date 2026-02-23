@@ -193,8 +193,8 @@ body.no-scroll {
 #profile {
     width: 720px;
     position: absolute;
-    bottom: -140px;
-    right: -20px;
+    bottom: -225px;
+    right: -80px;
     z-index: 2;
 }
 
@@ -1541,10 +1541,10 @@ body.no-scroll {
     }
 
     #profile {
-        width: 519px;
+        width: 600px;
         position: absolute;
-        bottom: 310px;
-        right: 60px
+        bottom: 145px;
+        right: -13px;
     }
 
     #about-header::after {
@@ -1629,10 +1629,10 @@ body.no-scroll {
     }
 
     #profile {
-        width: 519px;
+        width: 600px;
         position: absolute;
-        bottom: 310px;
-        right: 60px
+        bottom: 145px;
+        right: -13px;
     }
     #about-header::after {
         position: absolute;
@@ -1651,6 +1651,12 @@ body.no-scroll {
     }
 
 
+}
+
+@media (min-width: 576px) and (max-width: 650px) {
+ #profile {
+    width: 580px;
+ }
 }
 
 /* Screen sm (Small) */
@@ -1688,10 +1694,11 @@ body.no-scroll {
     }
 
     #profile {
-        width: 519px;
+        width: 600px;
         position: absolute;
-        bottom: 310px;
-        right: calc((100% - 519px) /2);
+        bottom: 145px;
+        right: 54px;
+        right: calc((100% - 643px) /2);
     }
     #about-header::after {
         position: absolute;
@@ -1711,6 +1718,13 @@ body.no-scroll {
 
 }
 
+@media (min-width: 576px) and (max-width: 650px) {
+ #profile {
+    width: 555px;
+    right: clamp(-4px, -1vw, 16px);
+ }
+}
+
 @media (max-width: 575.98px) {
     #info-wrapper .name {
         font-size: 35px;
@@ -1723,10 +1737,11 @@ body.no-scroll {
     }
 
     #profile {
-        width: 350px;
+        overflow: hidden;
+        width: clamp(370px, 85vw, 420px);
         position: absolute;
-        bottom: clamp(310px, calc(460px - 150px * ((100vw - 350px) / 226px)), 460px);
-        right: calc((100% - 350px) /2);
+        bottom: clamp(130px, calc(300px - 150px * ((100vw - clamp(370px, 85vw, 420px)) / 226px)), 330px);
+        right: calc((100% - clamp(400px, 90vw, 453px)) /2);
     }
     #about-header::after {
         position: absolute;
