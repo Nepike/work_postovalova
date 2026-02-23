@@ -1732,10 +1732,10 @@ body.no-scroll {
 
     #profile {
         overflow: hidden;
-        width: clamp(370px, 85vw, 420px);
+        width: clamp(340px, 85vw, 420px);
         position: absolute;
         bottom: clamp(130px, calc(300px - 150px * ((100vw - clamp(370px, 85vw, 420px)) / 226px)), 330px);
-        right: calc((100% - clamp(400px, 90vw, 453px)) /2);
+        right: calc((100% - clamp(360px, 90vw, 453px)) /2);
     }
     #about-header::after {
         position: absolute;
