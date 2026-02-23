@@ -1731,11 +1731,16 @@ body.no-scroll {
     }
 
     #profile {
-        overflow: hidden;
         width: clamp(340px, 85vw, 420px);
         position: absolute;
-        bottom: clamp(130px, calc(300px - 150px * ((100vw - clamp(370px, 85vw, 420px)) / 226px)), 330px);
-        right: calc((100% - clamp(360px, 90vw, 453px)) /2);
+
+        bottom: clamp(
+            225px,
+            calc(350px - 0.738095 * (100vw - 365px)),
+            380px
+        );
+
+        right: calc((100% - clamp(360px, 90vw, 453px)) / 2);
     }
     #about-header::after {
         position: absolute;
