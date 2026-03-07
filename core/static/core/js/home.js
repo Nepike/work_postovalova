@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 
 
-    $('.education-element').on('click', function() {
+    $('div.education-element').on('click', function() {
         const diplomaSrc = $(this).data('diploma');
         $('#diplomaImage').attr('src', diplomaSrc);
         openModal('#diplomaModal');
