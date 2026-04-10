@@ -30,3 +30,10 @@ SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
 TGBOT_TOKEN = SITE_CONFIG["telegram_bot"].get("token", None)
 
 AKISMET_API_KEY = None
+
+PROXY_IP = SITE_CONFIG["proxy"].get("ip", None)
+PROXY_PORT = SITE_CONFIG["proxy"].get("port", None)
+PROXY_LOGIN = SITE_CONFIG["proxy"].get("login", None)
+PROXY_PASSWORD = SITE_CONFIG["proxy"].get("password", None)
+
+PROXY = f"http://{PROXY_LOGIN}:{PROXY_PASSWORD}@{PROXY_IP}:{PROXY_PORT}" if PROXY_IP else None

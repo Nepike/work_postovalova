@@ -1,8 +1,10 @@
 from django.db import models
 from django.conf import settings
 import telebot
+from telebot import apihelper
 
-
+if hasattr(settings, 'PROXY'):
+    apihelper.proxy = {'https': settings.PROXY}
 TGBOT = telebot.TeleBot(settings.TGBOT_TOKEN)
 
 

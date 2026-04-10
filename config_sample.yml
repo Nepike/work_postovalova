@@ -6,3 +6,8 @@ telegram_bot:
 recaptcha:
   public_key:
   private_key:
+proxy:
+  ip:
+  port:
+  login:
+  password:

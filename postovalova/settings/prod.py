@@ -119,6 +119,13 @@ AKISMET_BLOG_URL = SITE_CONFIG["akismet"]["blog"]
 
 TGBOT_TOKEN = SITE_CONFIG["telegram_bot"].get("token", None)
 
+PROXY_IP = SITE_CONFIG["proxy"].get("ip", None)
+PROXY_PORT = SITE_CONFIG["proxy"].get("port", None)
+PROXY_LOGIN = SITE_CONFIG["proxy"].get("login", None)
+PROXY_PASSWORD = SITE_CONFIG["proxy"].get("password", None)
+
+PROXY = f"http://{PROXY_LOGIN}:{PROXY_PASSWORD}@{PROXY_IP}:{PROXY_PORT}" if PROXY_IP else None
+
 
 
 

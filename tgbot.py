@@ -1,5 +1,6 @@
 import yaml
 import telebot
+from telebot import apihelper
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 import os
 from postovalova.settings.base import BASE_DIR
@@ -10,7 +11,15 @@ CONFIG_PATH = BASE_DIR / 'config.yml'
 with open(CONFIG_PATH) as f:
 	SITE_CONFIG = yaml.safe_load(f.read())
 
+PROXY_IP = SITE_CONFIG["proxy"].get("ip", None)
+PROXY_PORT = SITE_CONFIG["proxy"].get("port", None)
+PROXY_LOGIN = SITE_CONFIG["proxy"].get("login", None)
+PROXY_PASSWORD = SITE_CONFIG["proxy"].get("password", None)
 
+PROXY = f"http://{PROXY_LOGIN}:{PROXY_PASSWORD}@{PROXY_IP}:{PROXY_PORT}" if PROXY_IP else None
+
+if PROXY:
+	apihelper.proxy = {'https': PROXY}
 bot = telebot.TeleBot(SITE_CONFIG["telegram_bot"]["token"])
 
 
